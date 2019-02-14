@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom">
+  <title>johnny li博客</title>
+  <id>http://www.igtx.top</id>
+  <updated>2018-07-18T09:26:23Z</updated>
+  <subtitle>构建只为纯粹书写的博客</subtitle>
+  <link href="http://www.igtx.top"></link>
+  <author>
+    <name>johnny li博客</name>
+  </author>
+  <entry>
+    <title>后台开发常问面试题集</title>
+    <updated>2018-07-18T17:18:00+08:00</updated>
+    <id>tag:www.igtx.top,2018-07-18:/后端开发常问面试题集.html</id>
+    <content type="html"></content>
+    <link href="http://www.igtx.top/后端开发常问面试题集.html"></link>
+    <author>
+      <name>johnny</name>
+    </author>
+  </entry>
+  <entry>
+    <title>设计模式：建造者模式</title>
+    <updated>2018-06-12T15:35:00+08:00</updated>
+    <id>tag:www.igtx.top,2018-06-12:/设计模式：建造者模式.html</id>
+    <content type="html">&lt;p&gt;将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示&lt;/p&gt;&#xA;</content>
+    <link href="http://www.igtx.top/设计模式：建造者模式.html"></link>
+    <author>
+      <name>johnny</name>
+    </author>
+  </entry>
+  <entry>
+    <title>后端架构师技术图谱</title>
+    <updated>2018-06-11T15:50:00+08:00</updated>
+    <id>tag:www.igtx.top,2018-06-11:/后端架构师技术图谱.html</id>
+    <content type="html"></content>
+    <link href="http://www.igtx.top/后端架构师技术图谱.html"></link>
+    <author>
+      <name>johnny</name>
+    </author>
+  </entry>
+  <entry>
+    <title>寻找一种易于理解的一致性算法Raft算法</title>
+    <updated>2018-06-11T09:47:00+08:00</updated>
+    <id>tag:www.igtx.top,2018-06-11:/寻找一种易于理解的一致性算法raft算法.html</id>
+    <content type="html">&lt;p&gt;Raft 是一种为了管理复制日志的一致性算法。它提供了和 Paxos 算法相同的功能和性能，但是它的算法结构和 Paxos 不同，使得 Raft 算法更加容易理解并且更容易构建实际的系统。……从一个用户研究的结果可以证明，对于学生而言，Raft 算法比 Paxos 算法更加容易学习。Raft 算法还包括一个新的机制来允许集群成员的动态改变，它利用重叠的大多数来保证安全性。&lt;/p&gt;&#xA;</content>
+    <link href="http://www.igtx.top/寻找一种易于理解的一致性算法raft算法.html"></link>
+    <author>
+      <name>johnny</name>
+    </author>
+  </entry>
+  <entry>
+    <title>如何免费的让网站启用HTTPS</title>
+    <updated>2018-06-07T19:08:00+08:00</updated>
+    <id>tag:www.igtx.top,2018-06-07:/如何免费的让网站启用https.html</id>
+    <content type="html">&lt;hr /&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;转自 &lt;a href=&#34;https://coolshell.cn/articles/18094.html&#34;&gt;陈皓 酷 壳 – CoolShell&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&#xA;&lt;p&gt;以下是原文：&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;data:image/gif;base64,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&#34; data-src=&#34;//www.igtx.top/images/enable-https-banner.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&#xA;</content>
+    <link href="http://www.igtx.top/如何免费的让网站启用https.html"></link>
+    <author>
+      <name>johnny</name>
+    </author>
+  </entry>
+  <entry>
+    <title>抓取qq音乐原始播放地址</title>
+    <updated>2018-06-01T14:45:00+08:00</updated>
+    <id>tag:www.igtx.top,2018-06-01:/qq音乐抓取.html</id>
+    <content type="html">&lt;p&gt;拿到有过期时间的地址，要尽快下载&lt;/p&gt;&#xA;</content>
+    <link href="http://www.igtx.top/qq音乐抓取.html"></link>
+    <author>
+      <name>johnny</name>
+    </author>
+  </entry>
+  <entry>
+    <title>Ubuntu18.04仿mac</title>
+    <updated>2018-06-01T14:32:00+08:00</updated>
+    <id>tag:www.igtx.top,2018-06-01:/ubuntu18仿mac.html</id>
+    <content type="html">&lt;p&gt;一直在模仿，从未被超越&lt;/p&gt;&#xA;</content>
+    <link href="http://www.igtx.top/ubuntu18仿mac.html"></link>
+    <author>
+      <name>johnny</name>
+    </author>
+  </entry>
+  <entry>
+    <title>欢迎使用Markdown编辑器写博客</title>
+    <updated>2018-05-31T19:37:00Z</updated>
+    <id>tag:www.igtx.top,2018-05-31:/msdnmarkdown.html</id>
+    <content type="html">&lt;p&gt;本Markdown编辑器使用[StackEdit][6]修改而来，用它写博客，将会带来全新的体验哦：&lt;/p&gt;&#xA;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Markdown和扩展Markdown简洁的语法&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;代码块高亮&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;图片链接和图片上传&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;LaTex*数学公式&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;UML序列图和流程图&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;离线写博客&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;导入导出Markdown文件&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;丰富的快捷键&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;&lt;hr /&gt;&#xA;</content>
+    <link href="http://www.igtx.top/msdnmarkdown.html"></link>
+    <author>
+      <name>johnny</name>
+    </author>
+  </entry>
+</feed>

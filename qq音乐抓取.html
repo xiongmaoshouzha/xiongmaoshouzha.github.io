@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+<meta name="renderer" content="webkit">
+<meta name="google" value="notranslate">
+<meta name="robots" content="index,follow">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="johnny li博客">
+<meta name="twitter:description" content="构建只为纯粹书写的博客">
+<meta name="twitter:image:src" content="http://www.igtx.top/images/avatar.png">
+
+<meta property="og:url" content="http://www.igtx.top">
+<meta property="og:title" content="johnny li博客">
+<meta property="og:description" content="构建只为纯粹书写的博客">
+<meta property="og:site_name" content="johnny li博客">
+<meta property="og:image" content="http://www.igtx.top/images/avatar.png">
+<meta property="og:type" content="website">
+<meta name="robots" content="noodp">
+
+<meta itemprop="name" content="johnny li博客">
+<meta itemprop="description" content="构建只为纯粹书写的博客">
+<meta itemprop="image" content="http://www.igtx.top/images/avatar.png">
+
+<link rel="canonical" href="http://www.igtx.top">
+
+<link rel="shortcut icon" href="/favicon.png?v=2017">
+<link rel="apple-itouch-icon" href="/favicon.png?v=2017">
+<link rel="stylesheet" href="/bundle/index.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+    var root = '';
+</script>
+
+
+        <meta name="keywords" content="python,">
+        <meta name="description" content="抓取qq音乐原始播放地址">
+        <meta name="author" content="johnny">
+        <title>抓取qq音乐原始播放地址</title>
+    </head>
+    <body>
+        <article class="container">
+            <header class="header-wrap asset" style="background-image: url(./images/bg1.jpg);">
+  <nav class="main-nav">
+    
+      <a class="blog-logo" href="/"><img class="logo" src="/images/avatar.png" /></a>
+    
+    <ul class="menu vertical">
+        <li class="menu-item"><a href="/archive.html">归档</a></li>
+        <li class="menu-item"><a href="/tag.html">标签</a></li>
+        <li class="menu-item"><a href="/atom.xml">订阅</a></li>
+    </ul>
+  </nav>
+  <div class="vertical">
+    <div class="header-wrap-content inner">
+      <h1 class="title">johnny li博客</h1>
+      <h2 class="subtitle">构建只为纯粹书写的博客</h2>
+    </div>
+  </div>
+  <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
+
+            <article class="main article">
+                <h1 class="title">抓取qq音乐原始播放地址</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/avatar.png);"></span>
+                    <a class="name" href="/about.me.html">johnny</a>
+                    
+                    <span class="date" data-time="1527835500"><span class="from"></span></span>
+                    
+                    <span class="tags"><a class="tag" href="/tag/python/index.html">python</a></span>
+                </section>
+                <article class="content"><blockquote>
+<p>文中用到的几个词：
+<strong>songid</strong> <em>在分享链接时出现在链接中</em>
+<strong>vkey</strong> <em>拿到音乐地址所必须的参数</em>
+<strong>songmid</strong> <em>获取vkey的音乐id</em>
+<strong>filename</strong> <em>由songid拼接而成，C100{songmid}.m4a</em>
+最终音乐地址 <a href="http://dl.stream.qqmusic.qq.com/{filename}?vkey={vkey}&amp;fromtag=66">http://dl.stream.qqmusic.qq.com/{filename}?vkey={vkey}&amp;fromtag=66</a></p>
+</blockquote>
+
+<h3>1 . <a href="#1">点击分享链接</a></h3>
+
+<p><span id="1">在音乐界面点击<code>复制链接</code> 得到原始URL</span> <a href="https://i.y.qq.com/v8/playsong.html?songid=212877966&amp;source=yqq#wechat_redirect">https://i.y.qq.com/v8/playsong.html?songid=212877966&amp;source=yqq#wechat_redirect</a>
+得到<strong>songid</strong>=212877966</p>
+
+<p>如果在排行榜页面点击歌曲名称，例如<a href="https://y.qq.com/n/yqq/song/002Fjdnk0zz1T6.html，那么songmid就是002Fjdnk0zz1T6，可直接到第四步">https://y.qq.com/n/yqq/song/002Fjdnk0zz1T6.html，那么songmid就是002Fjdnk0zz1T6，可直接到第四步</a></p>
+
+<h3>2 . <a href="#2">请求qq音乐接口</a></h3>
+
+<p><span id="2">根据</span>songid请求jsonp请求 <a href="https://c.y.qq.com/v8/fcg-bin/fcg_play_single_song.fcg?songid=212891616&amp;tpl=yqq_song_detail&amp;format=jsonp&amp;callback=getOneSongInfoCallback">https://c.y.qq.com/v8/fcg-bin/fcg_play_single_song.fcg?songid=212891616&amp;tpl=yqq_song_detail&amp;format=jsonp&amp;callback=getOneSongInfoCallback</a>
+去掉无用的数据如下：</p>
+
+<pre><code class="language-jsonp">getOneSongInfoCallback({
+    &quot;code&quot;: 0,
+    &quot;data&quot;: [{
+        ...
+        &quot;mid&quot;: &quot;0018jCvj3i0f3E&quot;,
+        ...     
+        &quot;url&quot;: &quot;http://stream3.qqmusic.qq.com/224891616.wma&quot;
+        
+    }],
+    &quot;url&quot;: {
+        &quot;212891616&quot;: &quot;ws.stream.qqmusic.qq.com/C1000018jCvj3i0f3E.m4a?fromtag=38&quot;
+    },
+    ...
+})
+</code></pre>
+
+<h3>3 . <del><a href="#3">拿到最终地址</a></del></h3>
+
+<p><strong>04.19发现地址已经被屏蔽403，继续步骤4</strong>
+ <del>获取mid，拼装URL <a href="http://thirdparty.gtimg.com/C100{mid}.m4a?fromtag={random">http://thirdparty.gtimg.com/C100{mid}.m4a?fromtag={random</a>} 得到最终音乐文件地址</del>
+此方法已不能用，提示未授权。</p>
+
+<p><del><span id="3">改为直接读取步骤2中的json url: <strong>ws.stream.qqmusic.qq.com/C1000018jCvj3i0f3E.m4a?fromtag=38</strong></span></del></p>
+
+<hr />
+
+<h3>4. 请求音乐文件的vkey</h3>
+
+<p>在播放页面抓取js得到如下地址：
+<a href="https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=872989112&amp;jsonpCallback=MusicJsonCallback06459212607938936&amp;hostUin=0&amp;format=json&amp;inCharset=utf8&amp;outCharset=utf-8&amp;notice=0&amp;platform=yqq&amp;needNewCode=0&amp;cid=205361747&amp;callback=MusicJsonCallback06459212607938936&amp;uin=11297258&amp;songmid=0018jCvj3i0f3E&amp;filename=C1000018jCvj3i0f3E.m4a&amp;guid=9136027940">https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=872989112&amp;jsonpCallback=MusicJsonCallback06459212607938936&amp;hostUin=0&amp;format=json&amp;inCharset=utf8&amp;outCharset=utf-8&amp;notice=0&amp;platform=yqq&amp;needNewCode=0&amp;cid=205361747&amp;callback=MusicJsonCallback06459212607938936&amp;uin=11297258&amp;songmid=0018jCvj3i0f3E&amp;filename=C1000018jCvj3i0f3E.m4a&amp;guid=9136027940</a></p>
+
+<p><small>链接有些长，应该有无效的参数，暂未验证哪些参数是必须传的</small></p>
+
+<p>需要替换里面的<strong>songmid</strong>、<strong>filename</strong>
+其中参数<strong>songmid</strong>就是步骤2中的mid（ps: 里面有好几个mid，最外层的那个，<strong>filename</strong>=*C100{songmid}.m4a*）</p>
+
+<p>之后后请求，得到json，拿到vkey：</p>
+
+<pre><code class="language-json">{
+    &quot;code&quot;: 0,  
+    &quot;data&quot;: {
+        &quot;expiration&quot;: 80400,
+        &quot;items&quot;: [
+            {
+                &quot;subcode&quot;: 0,
+                &quot;songmid&quot;: &quot;0018jCvj3i0f3E&quot;,
+                &quot;filename&quot;: &quot;C1000018jCvj3i0f3E.m4a&quot;,
+                &quot;vkey&quot;: &quot;734C6EF27F122751D9D098AC84F2465F8BA2658A4D4EC9C6A084FCDC10C68718A5C72869CF3B424EC4EE8CCF96FEFDD4E2B2F7F9E6790E73&quot;
+            }
+        ]
+    }
+}
+</code></pre>
+
+<p>里面的expiration猜测是vkey的过期时间</p>
+
+<h3>5. 拼接最终地址</h3>
+
+<p>用步骤4里面的数据filename、vkey拼接下面地址：
+&gt;<a href="http://dl.stream.qqmusic.qq.com/**{filename}**?vkey=**{vkey}**&amp;fromtag=66">http://dl.stream.qqmusic.qq.com/**{filename}**?vkey=**{vkey}**&amp;fromtag=66</a></p>
+
+<h3>6. 批量下载qq音乐脚本</h3>
+
+<pre><code class="language-python">#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import requests,json,re
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from multiprocessing import Pool
+
+def download_music(songmid,music_name):
+    url='https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?g_tk=872989112&amp;jsonpCallback=MusicJsonCallback06459212607938936&amp;loginUin=11297258&amp;hostUin=0&amp;format=json&amp;inCharset=utf8&amp;outCharset=utf-8&amp;notice=0&amp;platform=yqq&amp;needNewCode=0&amp;cid=205361747&amp;callback=MusicJsonCallback06459212607938936&amp;uin=11297258&amp;songmid={0}&amp;filename=C100{0}.m4a&amp;guid=9136027940'.format(songmid)
+    html= requests.get(url)
+    # 去掉jsonp
+    music_json= json.loads(re.findall(r'^\w+\((.*)\)$',html.text)[0])
+    filename=music_json['data']['items'][0]['filename']
+    vkey=music_json['data']['items'][0]['vkey']
+    download_url='http://dl.stream.qqmusic.qq.com/{}?vkey={}&amp;fromtag=66'.format(filename,vkey)
+    print(download_url)
+    #下载到本地
+    music=requests.get(download_url)
+    #文件名去除特殊符号
+    with open(&quot;d:\\music\\{}.m4a&quot;.format( re.sub(r'[\s+|@&lt;&gt;:\\&quot;/]','',music_name)),&quot;wb&quot;) as m:
+         m.write(music.content)
+
+def view_html():
+    # qq音乐页面是js加载的，这里用chrome headless模式访问
+    option = webdriver.ChromeOptions()
+    option.add_argument('headless')
+    driver = webdriver.Chrome('D:\Program Files\Python\chromedriver.exe',chrome_options=option)
+
+    #排行榜页面
+    driver.get('https://y.qq.com/n/yqq/toplist/26.html')
+    print(driver.title)
+    try:
+        # 等待播放列表加载完毕
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, &quot;songlist__songname_txt&quot;)))
+
+        lis= driver.find_elements_by_class_name('songlist__songname_txt')  
+        pattern = re.compile(r'https://y.qq.com/n/yqq/song/(\S+).html')    
+        for i in range(lis.__len__()):
+            li = lis.__getitem__(i)
+            a= li.find_element_by_class_name('js_song')
+            # 获得songid
+            href=a.get_attribute('href') 
+            music_name=a.get_attribute('title')          
+            m=pattern.match(href)            
+            download_music(m.group(1),music_name)
+       
+    finally:
+        driver.quit()
+ 
+
+if __name__ == '__main__':
+    view_html()
+</code></pre>
+
+<p>效果图如下：
+<img src="data:image/gif;base64,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" data-src="https://img-blog.csdn.net/20180704114411994?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpanVuaHVhbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="抓取的页面" /></p>
+
+<p><img src="data:image/gif;base64,R0lGODlhGAAYAPQAAP///wAAAM7Ozvr6+uDg4LCwsOjo6I6OjsjIyJycnNjY2KioqMDAwPLy8nd3d4aGhri4uGlpaQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkHAAAAIf4aQ3JlYXRlZCB3aXRoIGFqYXhsb2FkLmluZm8AIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAGAAYAAAFriAgjiQAQWVaDgr5POSgkoTDjFE0NoQ8iw8HQZQTDQjDn4jhSABhAAOhoTqSDg7qSUQwxEaEwwFhXHhHgzOA1xshxAnfTzotGRaHglJqkJcaVEqCgyoCBQkJBQKDDXQGDYaIioyOgYSXA36XIgYMBWRzXZoKBQUMmil0lgalLSIClgBpO0g+s26nUWddXyoEDIsACq5SsTMMDIECwUdJPw0Mzsu0qHYkw72bBmozIQAh+QQJBwAAACwAAAAAGAAYAAAFsCAgjiTAMGVaDgR5HKQwqKNxIKPjjFCk0KNXC6ATKSI7oAhxWIhezwhENTCQEoeGCdWIPEgzESGxEIgGBWstEW4QCGGAIJEoxGmGt5ZkgCRQQHkGd2CESoeIIwoMBQUMP4cNeQQGDYuNj4iSb5WJnmeGng0CDGaBlIQEJziHk3sABidDAHBgagButSKvAAoyuHuUYHgCkAZqebw0AgLBQyyzNKO3byNuoSS8x8OfwIchACH5BAkHAAAALAAAAAAYABgAAAW4ICCOJIAgZVoOBJkkpDKoo5EI43GMjNPSokXCINKJCI4HcCRIQEQvqIOhGhBHhUTDhGo4diOZyFAoKEQDxra2mAEgjghOpCgz3LTBIxJ5kgwMBShACREHZ1V4Kg1rS44pBAgMDAg/Sw0GBAQGDZGTlY+YmpyPpSQDiqYiDQoCliqZBqkGAgKIS5kEjQ21VwCyp76dBHiNvz+MR74AqSOdVwbQuo+abppo10ssjdkAnc0rf8vgl8YqIQAh+QQJBwAAACwAAAAAGAAYAAAFrCAgjiQgCGVaDgZZFCQxqKNRKGOSjMjR0qLXTyciHA7AkaLACMIAiwOC1iAxCrMToHHYjWQiA4NBEA0Q1RpWxHg4cMXxNDk4OBxNUkPAQAEXDgllKgMzQA1pSYopBgonCj9JEA8REQ8QjY+RQJOVl4ugoYssBJuMpYYjDQSliwasiQOwNakALKqsqbWvIohFm7V6rQAGP6+JQLlFg7KDQLKJrLjBKbvAor3IKiEAIfkECQcAAAAsAAAAABgAGAAABbUgII4koChlmhokw5DEoI4NQ4xFMQoJO4uuhignMiQWvxGBIQC+AJBEUyUcIRiyE6CR0CllW4HABxBURTUw4nC4FcWo5CDBRpQaCoF7VjgsyCUDYDMNZ0mHdwYEBAaGMwwHDg4HDA2KjI4qkJKUiJ6faJkiA4qAKQkRB3E0i6YpAw8RERAjA4tnBoMApCMQDhFTuySKoSKMJAq6rD4GzASiJYtgi6PUcs9Kew0xh7rNJMqIhYchACH5BAkHAAAALAAAAAAYABgAAAW0ICCOJEAQZZo2JIKQxqCOjWCMDDMqxT2LAgELkBMZCoXfyCBQiFwiRsGpku0EshNgUNAtrYPT0GQVNRBWwSKBMp98P24iISgNDAS4ipGA6JUpA2WAhDR4eWM/CAkHBwkIDYcGiTOLjY+FmZkNlCN3eUoLDmwlDW+AAwcODl5bYl8wCVYMDw5UWzBtnAANEQ8kBIM0oAAGPgcREIQnVloAChEOqARjzgAQEbczg8YkWJq8nSUhACH5BAkHAAAALAAAAAAYABgAAAWtICCOJGAYZZoOpKKQqDoORDMKwkgwtiwSBBYAJ2owGL5RgxBziQQMgkwoMkhNqAEDARPSaiMDFdDIiRSFQowMXE8Z6RdpYHWnEAWGPVkajPmARVZMPUkCBQkJBQINgwaFPoeJi4GVlQ2Qc3VJBQcLV0ptfAMJBwdcIl+FYjALQgimoGNWIhAQZA4HXSpLMQ8PIgkOSHxAQhERPw7ASTSFyCMMDqBTJL8tf3y2fCEAIfkECQcAAAAsAAAAABgAGAAABa8gII4k0DRlmg6kYZCoOg5EDBDEaAi2jLO3nEkgkMEIL4BLpBAkVy3hCTAQKGAznM0AFNFGBAbj2cA9jQixcGZAGgECBu/9HnTp+FGjjezJFAwFBQwKe2Z+KoCChHmNjVMqA21nKQwJEJRlbnUFCQlFXlpeCWcGBUACCwlrdw8RKGImBwktdyMQEQciB7oACwcIeA4RVwAODiIGvHQKERAjxyMIB5QlVSTLYLZ0sW8hACH5BAkHAAAALAAAAAAYABgAAAW0ICCOJNA0ZZoOpGGQrDoOBCoSxNgQsQzgMZyIlvOJdi+AS2SoyXrK4umWPM5wNiV0UDUIBNkdoepTfMkA7thIECiyRtUAGq8fm2O4jIBgMBA1eAZ6Knx+gHaJR4QwdCMKBxEJRggFDGgQEREPjjAMBQUKIwIRDhBDC2QNDDEKoEkDoiMHDigICGkJBS2dDA6TAAnAEAkCdQ8ORQcHTAkLcQQODLPMIgIJaCWxJMIkPIoAt3EhACH5BAkHAAAALAAAAAAYABgAAAWtICCOJNA0ZZoOpGGQrDoOBCoSxNgQsQzgMZyIlvOJdi+AS2SoyXrK4umWHM5wNiV0UN3xdLiqr+mENcWpM9TIbrsBkEck8oC0DQqBQGGIz+t3eXtob0ZTPgNrIwQJDgtGAgwCWSIMDg4HiiUIDAxFAAoODwxDBWINCEGdSTQkCQcoegADBaQ6MggHjwAFBZUFCm0HB0kJCUy9bAYHCCPGIwqmRq0jySMGmj6yRiEAIfkECQcAAAAsAAAAABgAGAAABbIgII4k0DRlmg6kYZCsOg4EKhLE2BCxDOAxnIiW84l2L4BLZKipBopW8XRLDkeCiAMyMvQAA+uON4JEIo+vqukkKQ6RhLHplVGN+LyKcXA4Dgx5DWwGDXx+gIKENnqNdzIDaiMECwcFRgQCCowiCAcHCZIlCgICVgSfCEMMnA0CXaU2YSQFoQAKUQMMqjoyAglcAAyBAAIMRUYLCUkFlybDeAYJryLNk6xGNCTQXY0juHghACH5BAkHAAAALAAAAAAYABgAAAWzICCOJNA0ZVoOAmkY5KCSSgSNBDE2hDyLjohClBMNij8RJHIQvZwEVOpIekRQJyJs5AMoHA+GMbE1lnm9EcPhOHRnhpwUl3AsknHDm5RN+v8qCAkHBwkIfw1xBAYNgoSGiIqMgJQifZUjBhAJYj95ewIJCQV7KYpzBAkLLQADCHOtOpY5PgNlAAykAEUsQ1wzCgWdCIdeArczBQVbDJ0NAqyeBb64nQAGArBTt8R8mLuyPyEAOw==" data-src="https://img-blog.csdn.net/20180704114432259?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpanVuaHVhbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="运行的代码" /></p>
+
+<p><img src="data:image/gif;base64,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" data-src="https://img-blog.csdn.net/201807041144425?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpanVuaHVhbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="保存的音乐" /></p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/avatar.png);"></div>
+                    <a class="name" href="/about.me.html">johnny</a>
+                    <div class="intro">构建只为纯粹书写的博客</div>
+                </section>
+                <section class="recommend">
+                    
+                    <section class="nav prev more">
+                        
+                        <a class="link" href="/%e5%a6%82%e4%bd%95%e5%85%8d%e8%b4%b9%e7%9a%84%e8%ae%a9%e7%bd%91%e7%ab%99%e5%90%af%e7%94%a8https.html">上篇文章</a>
+                    </section>
+                    
+                    
+                    <section class="nav next more">
+                        
+                        <a class="link" href="/ubuntu18%e4%bb%bfmac.html">下篇文章</a>
+                    </section>
+                    
+                </section>
+                
+
+            </article>
+        </article>
+        <footer class="footer clearfix">
+    <span class="copyright">
+        johnny li博客 &copy;
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.chole.io/" target="_blank">Ink</a></span>
+    <center><a href="https://webscan.360.cn/index/checkwebsite/url/www.igtx.top"><img border="0" src="https://webscan.360.cn/status/pai/hash/455cc148bb50db5747f145b8ae2ad253"/></a></center>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>
